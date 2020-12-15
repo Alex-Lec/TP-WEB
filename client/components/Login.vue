@@ -1,18 +1,10 @@
 <template>
     <form @submit.prevent="connect">
-        <h2 class="form-item">Connexion</h2>
-        <div class="form-item">
-            <label for="email">Email : </label>
-            <input type="email" name="email" id="email" v-model="user.email" placeholder="Adresse mail" required autofocus>
-        </div>
-        <div class="form-item">
-            <label for="password">Mot de passe : </label>
-            <input type="password" name="password" id="password" v-model="user.password" placeholder="Mot de passe" required>
-        </div>
-        <div class="form-item">
-            <button type="submit">Se connecter</button>
-            <button><router-link id="lien" to="/register">Créer un compte</router-link></button>
-        </div>
+        <h2>Connexion</h2>
+        <input type="email" name="email" id="email" v-model="user.email" placeholder="Adresse mail" required autofocus>
+        <input type="password" name="password" id="password" v-model="user.password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+        <div>Pour vous créer un compte c'est par ici : <router-link id="lien" to="/register"><button>S'enregistrer</button></router-link></div>
     </form>
 </template>
 

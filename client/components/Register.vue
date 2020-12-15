@@ -1,18 +1,11 @@
 <template>
-    <form @submit.prevent="connect">
-        <h2 class="form-item">Créer un compte</h2>
-        <div class="form-item">
-            <label for="email">Email : </label>
-            <input type="email" name="email" id="email" v-model="user.email" placeholder="Adresse mail" required autofocus>
-        </div>
-        <div class="form-item">
-            <label for="password">Mot de passe : </label>
-            <input type="password" name="password" id="password" v-model="user.password" placeholder="Mot de passe" required>
-        </div>
-        <div class="form-item">
-            <button type="submit">S'enregistrer</button>
-            <button><router-link id="lien" to="/register">Créer un compte</router-link></button>
-        </div>
+    <form @submit.prevent="register">
+        <h2>Créer un compte</h2>
+        <input type="text" name="prenom" id="prenom" v-model="user.prenom" placeholder="Prénom" required autofocus>
+        <input type="text" name="nom" id="nom" v-model="user.nom" placeholder="Nom" required>
+        <input type="mail" name="mail" id="mail" v-model="user.email" placeholder="Adresse mail" required>
+        <input type="password" name="password" id="password" v-model="user.password" placeholder="Mot de passe" required>
+        <button type="submit"><router-link id="lien" to="/">Créer un compte</router-link></button>
     </form>
 </template>
 
@@ -21,7 +14,9 @@ module.exports = {
     data() {
         return {
             user: {
-                email: '',
+                prenom: '',
+                nom: '',
+                mail: '',
                 password: ''
             }
         }
