@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="connect">
-        <h2 class="form-item">Connexion</h2>
+        <h2 class="form-item">Créer un compte</h2>
         <div class="form-item">
             <label for="email">Email : </label>
             <input type="email" name="email" id="email" v-model="user.email" placeholder="Adresse mail" required autofocus>
@@ -10,7 +10,7 @@
             <input type="password" name="password" id="password" v-model="user.password" placeholder="Mot de passe" required>
         </div>
         <div class="form-item">
-            <button type="submit">Se connecter</button>
+            <button type="submit">S'enregistrer</button>
             <button><router-link id="lien" to="/register">Créer un compte</router-link></button>
         </div>
     </form>
@@ -28,7 +28,7 @@ module.exports = {
     },
     methods: {
         connect() {
-            this.$emit('connect', this.user)
+            this.$emit('register', this.user)
         }
     }
 }

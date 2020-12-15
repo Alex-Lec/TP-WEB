@@ -9,31 +9,42 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #263238;
+	background-color: #FAFAFA;
 }
 
 #app {
 	max-width: 1440px;
 	height: 100vh;
 	margin: auto;
-	border: 1px solid black;
 }
 
 header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	border: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid black;
+}
+
+#logo {
+	width: 120px;
+	height: auto;
 }
 
 nav {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	margin-left: auto;
 	width: 50%;
 	font-weight: 500;
 	font-size: 1.3em;
-	border: 1px solid black;
+}
+
+#lien {
+	text-decoration: none;
+	color: #263238;
 }
 
 router-link:hover {
