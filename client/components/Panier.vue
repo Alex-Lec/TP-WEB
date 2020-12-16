@@ -21,9 +21,6 @@ module.exports = {
 <style scoped>
     div {
         text-align: center;
-    }
-    h2 {
-        margin-top: 2%;
-        margin-bottom: 2%;
+        margin-top: 30px;
     }
 </style>

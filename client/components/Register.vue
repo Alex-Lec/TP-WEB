@@ -30,20 +30,5 @@ module.exports = {
 </script>
 
 <style scoped>
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        align-content: center;
-        height: 250px;
-    }
 
-    input {
-        padding: 2px;
-    }
-
-    button {
-        padding: 2px;
-    }
 </style>
