@@ -6,28 +6,28 @@ const Profil = window.httpVueLoader('./components/Profil.vue')
 const Register = window.httpVueLoader('./components/Register.vue')
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/panier', component: Panier },
-    { path: '/login', component: Login },
-    { path: '/contact', component: Contact },
-    { path: '/profil', component: Profil },
-    { path: '/register', component: Register }
+  { path: '/', component: Home },
+  { path: '/panier', component: Panier },
+  { path: '/login', component: Login },
+  { path: '/contact', component: Contact },
+  { path: '/profil', component: Profil },
+  { path: '/register', component: Register }
 ]
 
 const router = new VueRouter({
-    routes
+  routes
 })
 
 var app = new Vue({
-    router,
-    el: '#app',
-    data: {
+  router,
+  el: '#app',
+  data: {
 
-    },
-    async mounted() {
+  },
+  async mounted() {
 
-    },
-    methods: {
+  },
+  methods: {
 
-    }
+  }
 })
