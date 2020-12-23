@@ -23,6 +23,24 @@ async function isEmailExist(email) {
 	return result >= 1
 }
 
+async function isPasswordCorrect(email, password) {
+	const sql = "SELECT password FROM public.\"User\" WHERE email=$1"
+	const result = await client.query({
+		text: sql,
+		values: [email]
+	})
+	return await bcrypt.compare(password, result.rows.pop().password)
+}
+
+async function getUserId(email) {
+	const sql = "SELECT id FROM public.\"User\" WHERE email=$1"
+	const result = await client.query({
+		text: sql,
+		values: [email]
+	})
+	return result.rows.pop().id
+}
+
 router.post('/register', async (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
@@ -40,6 +58,20 @@ router.post('/register', async (req, res) => {
 		values: [email, hash, prenom, nom]
 	})
 	res.json({ message: 'Vous êtes bien inscrit !' })	
+})
+
+router.post('/login', async (req, res) => {
+	const email = req.body.email
+	const password = req.body.password
+	const id = getUserId(email)
+	if (isPasswordCorrect(email, password)) {
+		if (req.session.userId === id) {
+			res.status(401).json({ message: "Vous êtes déjà connecté !" })
+		}
+		req.session.userId = id
+		res.json({ message: "Vous êtes connecté" })
+	}
+	res.status(401).json({ message: "Mot de passe incorrect !" })
 })
 
 module.exports = router

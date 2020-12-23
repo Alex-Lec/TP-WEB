@@ -28,6 +28,8 @@ var app = new Vue({
 
   },
   methods: {
-
+    async register(user) {
+      await axios.post('/api/register', 'email=' + user.email + '&password=' + user.password + '&prenom=' + user.prenom + '&nom=' + user.nom)
+    }
   }
 })
