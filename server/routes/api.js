@@ -1,7 +1,6 @@
 const express = require('express')
 const { route } = require('../app.js')
 const router = express.Router()
-
 const bcrypt = require('bcrypt')
 const { Client } = require('pg')
 
@@ -76,6 +75,14 @@ router.post('/login', async (req, res) => {
 	} else {
 		res.status(401).json({ message: "Mot de passe incorrect !" })
 	}
+})
+
+router.get('/articles', async (req, res) => {
+	const sql = "SELECT * FROM public.\"Article\""
+	const result = await client.query({
+		text: sql		
+	})
+	res.json(result.rows)
 })
 
 module.exports = router

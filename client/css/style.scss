@@ -9,7 +9,7 @@
 body {
 	font-family: "Roboto", sans-serif;
 	color: #263238;
-	font-size: 18px;
+	font-size: 16px;
 	background-color: #fafafa;
 }
 
@@ -40,7 +40,7 @@ nav {
 	margin-left: auto;
 	width: 50%;
 	font-weight: 500;
-	font-size: 1.1em;
+	font-size: 18px;
 }
 
 #lien {
@@ -95,4 +95,35 @@ form {
 	align-content: center;
 	gap: 20px;
 	margin-bottom: 20px;
+}
+
+.articles-container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	gap: 20px;
+	.article {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: space-evenly;
+		width: 305px;
+		gap: 5px;
+		padding: 5px;
+		box-shadow: 1px 1px 1px #3e2723;
+		img {
+			align-self: center;
+			width: 250px;
+		}
+		.two-article-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.marque {
+			font-style: italic;
+		}
+	}
 }

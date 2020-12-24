@@ -24,6 +24,7 @@
 		</header>
 		<main>
 			<router-view
+				:articles="articles"
 				@connect="connect"
 				@register="register"
 			></router-view>

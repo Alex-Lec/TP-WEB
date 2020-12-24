@@ -22,10 +22,14 @@ var app = new Vue({
   router,
   el: '#app',
   data: {
-
+    articles: { type: Object }
   },
   async mounted() {
-
+    try {
+      this.articles = await axios.get('/api/articles')
+    } catch (err) {
+      return console.error('network error', err)
+    }
   },
   methods: {
     async register(user) {
