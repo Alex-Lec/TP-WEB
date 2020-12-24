@@ -33,8 +33,8 @@ module.exports = {
 	data() {
 		return {
 			user: {
-				email: "",
-				password: "",
+				email: '',
+				password: '',
 			},
 		};
 	},

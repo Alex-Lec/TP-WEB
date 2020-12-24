@@ -29,7 +29,18 @@ var app = new Vue({
   },
   methods: {
     async register(user) {
-      await axios.post('/api/register', 'email=' + user.email + '&password=' + user.password + '&prenom=' + user.prenom + '&nom=' + user.nom)
+      try {
+        await axios.post('/api/register', 'email=' + user.email + '&password=' + user.password + '&prenom=' + user.prenom + '&nom=' + user.nom)
+      } catch (err) {
+        return console.error('network error', err)
+      }
+    },
+    async connect(user) {
+      try {
+        await axios.post('/api/login', 'email=' + user.email + '&password=' + user.password)
+      } catch (err) {
+        return console.error('network error', err)
+      }
     }
   }
 })
