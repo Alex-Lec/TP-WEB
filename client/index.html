@@ -13,13 +13,18 @@
 <body>
 	<div id="app">
 		<header>
-			<router-link id="lien" to="/"><img src="./assets/img/logo.png" alt="Logo" id="logo"></router-link>
 			<nav>
-				<router-link id="lien" to="/">Accueil</router-link>
-				<router-link id="lien" to="/contact">Contact</router-link>
-				<router-link id="lien" to="/panier">Panier</router-link>
-				<router-link v-show="! connected" id="lien" to="/login">Se connecter</router-link>
-				<router-link v-show="connected" id="lien" to="/profil">Mon profil</router-link>
+				<router-link id="lien" to="/"><img src="./assets/img/logo.png" alt="Logo" id="logo"></router-link>
+				<div class="menu">
+					<router-link class="nav-link" id="lien" to="/">Accueil</router-link>
+					<router-link class="nav-link" id="lien" to="/contact">Contact</router-link>
+					<router-link class="nav-link" id="lien" to="/panier">Panier</router-link>
+					<router-link v-show="! connected" class="nav-link" id="lien" to="/login">Se connecter</router-link>
+					<router-link v-show="connected" class="nav-link" id="lien" to="/profil">Mon profil</router-link>
+					<div class="responsive-icon">
+						<i class="fas fa-bars" @show-menu="showMenu"></i>
+					</div>
+				</div>
 			</nav>
 		</header>
 		<main>
@@ -31,6 +36,7 @@
 			></router-view>
 		</main>
 	</div>
+	<script src="https://kit.fontawesome.com/f1efa4788a.js" crossorigin="anonymous"></script>
 	<script src="/vue-application.js"></script>
 </body>
 </html>
