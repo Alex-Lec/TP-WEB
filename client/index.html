@@ -13,18 +13,19 @@
 <body>
 	<div id="app">
 		<header>
-			<img src="./assets/img/logo.png" alt="Logo" id="logo">
+			<router-link id="lien" to="/"><img src="./assets/img/logo.png" alt="Logo" id="logo"></router-link>
 			<nav>
 				<router-link id="lien" to="/">Accueil</router-link>
 				<router-link id="lien" to="/contact">Contact</router-link>
 				<router-link id="lien" to="/panier">Panier</router-link>
-				<router-link id="lien" to="/login">Se connecter</router-link>
-				<router-link id="lien" to="/profil">Mon profil</router-link>
+				<router-link v-show="! connected" id="lien" to="/login">Se connecter</router-link>
+				<router-link v-show="connected" id="lien" to="/profil">Mon profil</router-link>
 			</nav>
 		</header>
 		<main>
 			<router-view
-				:articles="articles"
+				:user="user"
+				:connected="connected"
 				@connect="connect"
 				@register="register"
 			></router-view>

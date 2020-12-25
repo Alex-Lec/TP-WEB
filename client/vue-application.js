@@ -22,11 +22,13 @@ var app = new Vue({
   router,
   el: '#app',
   data: {
-    articles: { type: Object }
+    connected: false,
+    user: { type: Object }
   },
   async mounted() {
     try {
-      this.articles = await axios.get('/api/articles')
+      this.user = await axios.get('/api/me')
+      this.connected = true
     } catch (err) {
       return console.error('network error', err)
     }
@@ -42,6 +44,8 @@ var app = new Vue({
     async connect(user) {
       try {
         await axios.post('/api/login', 'email=' + user.email + '&password=' + user.password)
+        this.user = await axios.get('/api/me')
+        this.connected = true
       } catch (err) {
         return console.error('network error', err)
       }

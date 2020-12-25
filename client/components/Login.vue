@@ -21,9 +21,7 @@
 		<button type="submit">Se connecter</button>
 		<div>
 			Pour vous créer un compte c'est par ici :
-			<router-link id="lien" to="/register"
-				><button>S'enregistrer</button></router-link
-			>
+			<router-link id="lien" to="/register"><button>S'enregistrer</button></router-link>
 		</div>
 	</form>
 </template>

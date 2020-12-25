@@ -85,4 +85,18 @@ router.get('/articles', async (req, res) => {
 	res.json(result.rows)
 })
 
+router.get('/me', async (req, res) => {
+	const id = req.session.userId
+	if (id !== undefined) {
+		const sql = "SELECT prenom, nom, email FROM public.\"User\" WHERE id=$1"
+		const result = await client.query({
+			text: sql,
+			values: [id]
+		})
+		res.json(result.rows[0])
+	} else {
+		res.status(401).json({ message: "Vous n'êtes pas connecté !" })
+	}
+})
+
 module.exports = router

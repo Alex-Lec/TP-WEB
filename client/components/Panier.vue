@@ -1,12 +1,15 @@
 <template>
 <div>
-    <h2>Bienvenue @user dans votre panier</h2>
+    <h2>Bienvenue {{ user.data.prenom }} {{ user.data.nom }} dans votre panier</h2>
     <p>Vous pouvez ici cliquer sur le bouton "payer" pour nous donner moult argent !</p>
 </div>
 </template>
 
 <script>
 module.exports = {
+    props: {
+        user: { type: Object }
+    },
     data() {
         return {
 
