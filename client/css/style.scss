@@ -43,25 +43,6 @@ nav {
 		width: 40%;
 		display: flex;
 		justify-content: space-between;
-		.responsive-icon {
-			cursor: pointer;
-			display: none;
-		}
-	}
-	@media screen and (max-width: 600px) {
-		justify-content: space-around;
-		.menu {
-			position: relative;
-			.nav-link {
-				display: none;
-			}
-			.responsive-icon {
-				display: block;
-				position: absolute;
-				right: 20%;
-				bottom: 0%;
-			}
-		}
 	}
 }
 

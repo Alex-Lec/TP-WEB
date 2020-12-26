@@ -21,9 +21,6 @@
 					<router-link class="nav-link" id="lien" to="/panier">Panier</router-link>
 					<router-link v-show="! connected" class="nav-link" id="lien" to="/login">Se connecter</router-link>
 					<router-link v-show="connected" class="nav-link" id="lien" to="/profil">Mon profil</router-link>
-					<div class="responsive-icon">
-						<i class="fas fa-bars" @show-menu="showMenu"></i>
-					</div>
 				</div>
 			</nav>
 		</header>
@@ -31,6 +28,7 @@
 			<router-view
 				:user="user"
 				:connected="connected"
+				@change-profil="changeProfil"
 				@connect="connect"
 				@register="register"
 			></router-view>

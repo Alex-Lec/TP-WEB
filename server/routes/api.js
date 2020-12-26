@@ -99,4 +99,51 @@ router.get('/me', async (req, res) => {
 	}
 })
 
+router.patch('/profil', async (req, res) => {
+	const id = req.session.userId
+	const email = req.body.email
+	const password = req.body.password
+	if (id !== undefined) {
+		const hash = await bcrypt.hash(password, 10)
+		const sql = "UPDATE public.\"User\" SET email=$1, password=$2 WHERE id=$3"
+		const result = await client.query({
+			text: sql,
+			values: [email, hash, id]
+		})
+		res.json({ message: "Vos informations ont été modifiées !" })
+	} else {
+		res.status(401).json({ message: "Vous n'êtes pas connecté !" })
+	}
+})
+
+/*
+router.get('/panier', async (req, res) => {
+	const id = req.session.userId
+	if (id !== undefined) {
+		const sql = "SELECT * FROM public.\"Panier\" WHERE userId='34'"
+		const result = await client.query({
+			text: sql,
+			values: [id]
+		})
+		res.json(result.rows)
+	} else {
+		res.status(401).json({ message: "Vous n'êtes pas connecté !" })
+	}
+})
+*/
+
+router.get('/panier', async (req, res) => {
+	const id = 34
+	try {
+		const sql = "SELECT * FROM public.\"Panier\" INNER JOIN public.\"User\" u ON u.id=$1"
+		const result = await client.query({
+			text: sql,
+			values: [id]
+		})
+		res.json(result)
+	} catch (err) {
+		res.status(401).json({ message: err })
+	}
+})
+
 module.exports = router

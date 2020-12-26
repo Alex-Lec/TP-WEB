@@ -23,12 +23,7 @@ var app = new Vue({
   el: '#app',
   data: {
     connected: false,
-    user: { type: Object },
-    panier: {
-      createdAt: null,
-      updatedAt: null,
-      articles: []
-    }
+    user: { type: Object }
   },
   async mounted() {
     try {
@@ -39,9 +34,6 @@ var app = new Vue({
     }
   },
   methods: {
-    showMenu() {
-      var nav = document.querySelector(".nav-link")
-    },
     async register(user) {
       try {
         await axios.post('/api/register', 'email=' + user.email + '&password=' + user.password + '&prenom=' + user.prenom + '&nom=' + user.nom)
@@ -55,6 +47,14 @@ var app = new Vue({
         await axios.post('/api/login', 'email=' + user.email + '&password=' + user.password)
         this.user = await axios.get('/api/me')
         this.connected = true
+        window.location.href = 'http://localhost:3000'
+      } catch (err) {
+        return console.error('network error', err)
+      }
+    },
+    async changeProfil(user) {
+      try {
+        await axios.patch('/api/profil', 'email=' + user.email + '&password=' + user.password)
         window.location.href = 'http://localhost:3000'
       } catch (err) {
         return console.error('network error', err)
