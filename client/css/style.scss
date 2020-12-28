@@ -135,3 +135,35 @@ form {
 		align-items: center;
 	}
 }
+
+.panier-container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	.article-panier {
+		display: flex;
+		height: 150px;
+		gap: 50px;
+		border: 1px solid black;
+		img {
+			width: 148px;
+			height: auto;
+		}
+		.panier-article-description {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: flex-start;
+			align-content: center;
+			#qty-input {
+				width: 80px;
+				text-align: right;
+			}
+		}
+		.modif-article {
+			align-self: center;
+		}
+	}
+}

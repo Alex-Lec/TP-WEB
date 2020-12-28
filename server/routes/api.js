@@ -135,12 +135,12 @@ router.get('/panier', async (req, res) => {
 router.get('/panier', async (req, res) => {
 	const id = 34
 	try {
-		const sql = "SELECT * FROM public.\"Panier\" INNER JOIN public.\"User\" u ON u.id=$1"
+		const sql = 'SELECT "userId", "articleId", "articleQty", a."titre", a."prix", a."marque", a."img" FROM public."Panier" p INNER JOIN public."User" u ON u.id=$1 INNER JOIN public."Article" a ON a.id = p."articleId"'
 		const result = await client.query({
 			text: sql,
 			values: [id]
 		})
-		res.json(result)
+		res.json(result.rows)
 	} catch (err) {
 		res.status(401).json({ message: err })
 	}
