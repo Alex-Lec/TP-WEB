@@ -8,7 +8,7 @@ const client = new Client({
 	user: 'postgres',
 	host: 'localhost',
 	password: 'ino5C?r5E$I2Vc?%>r7Npj1]}<Tw{:',
-	database: 'ConfinEbay'
+	database: 'TP-WEB'
 })
 
 client.connect()
