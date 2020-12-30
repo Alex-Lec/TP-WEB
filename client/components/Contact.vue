@@ -8,18 +8,40 @@
         </p>
         <div>
             <label for="email">Objet : </label>
-            <input type="text" name="objet" placeholder="Objet du mail" size="50" required>
+            <input type="text" name="objet" placeholder="Objet du mail" size="50" id="objet" required>
         </div>
-        <textarea
-            type="text"
-            placeholder="Votre mail ici"
-            rows="20"
-            cols="100"
-            required>
+        <textarea type="text" placeholder="Votre mail ici" rows="20" cols="100" id="corps" required>
         </textarea>
-        <button type="submit">Envoyer</button>
+        <button type="submit" @click="envoyermail()">Envoyer</button>
     </form>
 </template>
+
+
+<script>
+module.exports = {
+    props: {
+        user: { type: Object }
+    },
+    data() {
+        return {
+            envoyermail : {
+            }
+        }
+    },
+    methods: {
+        envoyermail() {
+            var $sendEmailEl = $('#send-email');
+            var $subjectEl = $('#objet');
+            var $bodyEl = $('#corps');
+            function updateEmailLink() {
+                $sendEmailEl.attr('href', 'mailto:grossepoubelle225@gmail.com?' + 'subject=' + encodeURIComponent($subjectEl.val()) + '&body=' + encodeURIComponent($bodyEl.val()));
+                }
+            $('#objet,#corps').on('input', updateEmailLink);
+            updateEmailLink();
+        }
+    }
+}
+</script>
 
 <style scoped>
     strong {
