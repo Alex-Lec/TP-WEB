@@ -7,13 +7,8 @@ const { Client } = require('pg')
 const client = new Client({
 	user: 'postgres',
 	host: 'localhost',
-<<<<<<< HEAD
 	password: 'ino5C?r5E$I2Vc?%>r7Npj1]}<Tw{:',
 	database: 'TP-WEB'
-=======
-	password: 'mdpsecret',
-	database: 'PROJET-WEB'
->>>>>>> 4d8997c7d155c85806d810685cb93d33b78ee0fd
 })
 
 client.connect()
@@ -139,14 +134,25 @@ router.patch('/panier', async (req, res) => {
 	const userId = req.session.userId
 	const articleId = req.body.articleId
 	const quantity = req.body.quantity
-	console.log(userId)
-	console.log(articleId)
-	console.log(quantity)
 	try {
 		const sql = 'UPDATE public."Panier" SET "articleQty"=$1 WHERE "articleId"=$2 AND "userId"=$3'
 		const result = await client.query({
 			text: sql,
 			values: [quantity, articleId, userId]
+		})
+	} catch (err) {
+		res.status(401).json({ message: err })
+	}
+})
+
+router.post('/panier', async (req, res) => {
+	const userId = req.session.userId
+	const articleId = req.body.articleId
+	try {
+		const sql = 'INSERT INTO public."Panier" ("userId", "articleId", "articleQty") VALUES ($1, $2, \'1\')'
+		const result = await client.query({
+			text: sql,
+			values: [userId, articleId]
 		})
 	} catch (err) {
 		res.status(401).json({ message: err })

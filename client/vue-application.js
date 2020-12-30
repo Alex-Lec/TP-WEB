@@ -67,6 +67,13 @@ var app = new Vue({
       } catch (err) {
         return console.error('network error', err)
       }
+    },
+    async addPanier(articleId) {
+      try {
+        await axios.post('/api/panier', 'articleId=' + articleId)
+      } catch (err) {
+        return console.error('network error', err)
+      }
     }
   }
 })

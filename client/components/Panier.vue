@@ -105,7 +105,6 @@ module.exports = {
                 let article = this.panier.data[i]
                 total += parseInt(article.prix) * parseInt(article.articleQty)
             }
-            console.log(total)
             return total
         }
     }

@@ -8,7 +8,7 @@
             </div>
             <div class="two-article-content">
                 <div class="marque">{{ article.marque }}</div>
-                <div class="btn-panier"><button>Ajouter au panier</button></div>
+                <div class="btn-panier"><button @click="addPanier(article.id)">Ajouter au panier</button></div>
             </div>
             <div>{{ article.description }}</div>
         </div>
@@ -30,7 +30,9 @@ module.exports = {
         }
     },
     methods: {
-
+        addPanier(articleId) {
+            this.$emit('add-panier', articleId)
+        }
     }
 }
 </script>
