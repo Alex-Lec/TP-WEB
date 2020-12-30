@@ -26,6 +26,9 @@
                 </div>
             </div>
         </div>
+        <div class="resume">
+            Prix total : {{ getTotalPrice() }}€
+        </div>
     </div>
 </div>
 </template>
@@ -85,7 +88,7 @@ module.exports = {
                 return console.error('network error', err)
             }
         },
-        annuler() {
+        cancel() {
             this.editingArticle = {
                 id: -1,
                 titre: '',
@@ -95,6 +98,15 @@ module.exports = {
 				marque: ''
             }
             this.newQty = 1
+        },
+        getTotalPrice() {
+            var total = 0
+            for (let i = 0; i < this.panier.data.length; i++) {
+                let article = this.panier.data[i]
+                total += parseInt(article.prix) * parseInt(article.articleQty)
+            }
+            console.log(total)
+            return total
         }
     }
 }
