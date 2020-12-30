@@ -116,24 +116,8 @@ router.patch('/profil', async (req, res) => {
 	}
 })
 
-/*
 router.get('/panier', async (req, res) => {
 	const id = req.session.userId
-	if (id !== undefined) {
-		const sql = "SELECT * FROM public.\"Panier\" WHERE userId='34'"
-		const result = await client.query({
-			text: sql,
-			values: [id]
-		})
-		res.json(result.rows)
-	} else {
-		res.status(401).json({ message: "Vous n'êtes pas connecté !" })
-	}
-})
-*/
-
-router.get('/panier', async (req, res) => {
-	const id = 34
 	try {
 		const sql = 'SELECT "userId", "articleId", "articleQty", a."titre", a."prix", a."marque", a."img" FROM public."Panier" p INNER JOIN public."User" u ON u.id=$1 INNER JOIN public."Article" a ON a.id = p."articleId"'
 		const result = await client.query({
@@ -141,6 +125,24 @@ router.get('/panier', async (req, res) => {
 			values: [id]
 		})
 		res.json(result.rows)
+	} catch (err) {
+		res.status(401).json({ message: err })
+	}
+})
+
+router.patch('/panier', async (req, res) => {
+	const userId = req.session.userId
+	const articleId = req.body.articleId
+	const quantity = req.body.quantity
+	console.log(userId)
+	console.log(articleId)
+	console.log(quantity)
+	try {
+		const sql = 'UPDATE public."Panier" SET "articleQty"=$1 WHERE "articleId"=$2 AND "userId"=$3'
+		const result = await client.query({
+			text: sql,
+			values: [quantity, articleId, userId]
+		})
 	} catch (err) {
 		res.status(401).json({ message: err })
 	}

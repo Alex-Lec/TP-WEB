@@ -11,15 +11,16 @@
                 <h3>{{ article.titre }}</h3>
                 <div class="prix-u">Prix unitaire : {{ article.prix }}€</div>
                 <div class="quantity">
-                    Quantité :
-                    <input type="text" pattern="[0-9]" name="qty-input" id="qty-input" :value="article.articleQty">
-                    <button @click="incrementQty(article.articleQty)"> + </button>
-                    <button> - </button>
+                    Quantité : {{ article.articleQty }}
                 </div>
                 <div class="prix-t">Prix total : {{ article.prix * article.articleQty }}€</div>
             </div>
             <div class="modif-article">
-                <button @click="editArticle(article)">Modifier</button>
+                <button @click="editArticle(article)" v-if="editingArticle.id !== article.articleId">Modifier</button>
+                <div class="editQty-container" v-else>
+                    <input type="number" name="editQty" id="editQty" v-model="newQty">
+                    <button @click="updateQuantity()">Mettre à jour</button>
+                </div>
             </div>
         </div>
     </div>
@@ -34,7 +35,15 @@ module.exports = {
     data() {
         return {
             panier: { type: Object },
-            editingArticle: { type: Object }
+            editingArticle: {
+				id: -1,
+                titre: '',
+                quantity: -1,
+				img: '',
+				prix: -1,
+				marque: ''
+            },
+            newQty: 1,
         }
     },
     async mounted() {
@@ -45,20 +54,35 @@ module.exports = {
         }
     },
     methods: {
-        getPrixTotal(prix, quantity) {
-            return prix * quantity
-        },
-        incrementQty(articleQty) {
-            const result = articleQty++
-            console.log(result)
-            return result
-        },
         editArticle(article) {
-            this.editingArticle = article
+            this.editingArticle = {
+                id: article.articleId,
+                titre: article.titre,
+                quantity: this.newQty,
+				img: article.img,
+				prix: article.prix,
+				marque: article.marque
+            }   
+        },
+        updateQuantity() {
+            this.editingArticle.quantity = this.newQty
+            this.$emit('update-quantity', this.editingArticle)
+            this.editingArticle = {
+                id: -1,
+                titre: '',
+                quantity: -1,
+				img: '',
+				prix: -1,
+				marque: ''
+            }
+            this.newQty = 1
         }
     }
 }
 </script>
 
 <style scoped>
+    #editQty {
+        width: 80px;
+    }
 </style>

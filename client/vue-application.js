@@ -59,6 +59,14 @@ var app = new Vue({
       } catch (err) {
         return console.error('network error', err)
       }
+    },
+    async updateQuantity(article) {
+      try {
+        await axios.patch('/api/panier', 'articleId=' + article.id + '&quantity=' + article.quantity)
+        window.location.href = 'http://localhost:3000/panier'
+      } catch (err) {
+        return console.error('network error', err)
+      }
     }
   }
 })

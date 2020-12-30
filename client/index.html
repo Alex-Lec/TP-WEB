@@ -28,6 +28,7 @@
 			<router-view
 				:user="user"
 				:connected="connected"
+				@update-quantity="updateQuantity"
 				@change-profil="changeProfil"
 				@connect="connect"
 				@register="register"
