@@ -203,6 +203,11 @@ form {
   }
 }
 
+.panier-title {
+  margin-top: 20px;
+  text-align: center;
+}
+
 .panier-container {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -245,16 +250,5 @@ form {
           align-items: flex-start;
   -ms-flex-line-pack: center;
       align-content: center;
-}
-
-.panier-container .article-panier .panier-article-description #qty-input {
-  width: 80px;
-  text-align: right;
-}
-
-.panier-container .article-panier .modif-article {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
 }
 /*# sourceMappingURL=style.css.map */

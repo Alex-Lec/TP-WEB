@@ -1,7 +1,9 @@
 <template>
 <div>
-    <h2>Bienvenue {{ user.data }} dans votre panier</h2>
-    <p>Vous pouvez ici cliquer sur le bouton "payer" pour nous donner moult argent !</p>
+    <div class="panier-title">
+        <h2>Bienvenue {{ user.data.prenom }} {{ user.data.nom }} dans votre panier</h2>
+        <p>Vous pouvez ici cliquer sur le bouton "payer" pour nous donner moult argent !</p>
+    </div>
     <div class="panier-container">
         <div class="article-panier" v-for="article in panier.data" :key="article.id">
             <div class="panier-article-img">

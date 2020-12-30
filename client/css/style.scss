@@ -136,6 +136,11 @@ form {
 	}
 }
 
+.panier-title {
+	margin-top: 20px;
+	text-align: center;
+}
+
 .panier-container {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -157,10 +162,6 @@ form {
 			justify-content: space-around;
 			align-items: flex-start;
 			align-content: center;
-			#qty-input {
-				width: 80px;
-				text-align: right;
-			}
 		}
 	}
 }
