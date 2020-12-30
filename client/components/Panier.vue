@@ -22,6 +22,7 @@
                 <div class="editQty-container" v-else>
                     <input type="number" name="editQty" id="editQty" v-model="newQty">
                     <button @click="updateQuantity()">Mettre à jour</button>
+                    <button @click="cancel()">Annuler</button>
                 </div>
             </div>
         </div>
@@ -35,7 +36,7 @@ module.exports = {
         user: { type: Object },
     },
     data() {
-        return {
+        return {    
             panier: { type: Object },
             editingArticle: {
 				id: -1,
@@ -66,9 +67,25 @@ module.exports = {
 				marque: article.marque
             }   
         },
-        updateQuantity() {
+        async updateQuantity() {
             this.editingArticle.quantity = this.newQty
             this.$emit('update-quantity', this.editingArticle)
+            this.editingArticle = {
+                id: -1,
+                titre: '',
+                quantity: -1,
+				img: '',
+				prix: -1,
+				marque: ''
+            }
+            this.newQty = 1
+            try {
+                this.panier = await axios.get('/api/panier')
+            } catch (err) {
+                return console.error('network error', err)
+            }
+        },
+        annuler() {
             this.editingArticle = {
                 id: -1,
                 titre: '',

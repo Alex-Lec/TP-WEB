@@ -149,11 +149,12 @@ form {
 	gap: 20px;
 	.article-panier {
 		display: flex;
+		width: 100%;
 		height: 150px;
-		gap: 50px;
-		border: 1px solid black;
-		img {
-			width: 148px;
+		gap: 60px;
+		border-bottom: 1px dashed #3e2723;
+		.panier-article-img img {
+			width: 149px;
 			height: auto;
 		}
 		.panier-article-description {
@@ -162,6 +163,9 @@ form {
 			justify-content: space-around;
 			align-items: flex-start;
 			align-content: center;
+		}
+		.modif-article {
+			align-self: center;
 		}
 	}
 }

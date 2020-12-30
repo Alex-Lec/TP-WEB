@@ -225,13 +225,14 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   height: 150px;
-  gap: 50px;
-  border: 1px solid black;
+  gap: 60px;
+  border-bottom: 1px dashed #3e2723;
 }
 
-.panier-container .article-panier img {
-  width: 148px;
+.panier-container .article-panier .panier-article-img img {
+  width: 149px;
   height: auto;
 }
 
@@ -250,5 +251,11 @@ form {
           align-items: flex-start;
   -ms-flex-line-pack: center;
       align-content: center;
+}
+
+.panier-container .article-panier .modif-article {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 /*# sourceMappingURL=style.css.map */
