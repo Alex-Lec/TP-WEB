@@ -78,9 +78,5 @@ var app = new Vue({
         return console.error('network error', err)
       }
     },
-      var navUl = document.querySelector(".nav-ul")
-    showMenu() {
-      navUl.classList.toggle("hide-ul");
-    }
   }
 })
