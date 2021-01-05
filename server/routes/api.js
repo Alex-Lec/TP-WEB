@@ -7,8 +7,8 @@ const { Client } = require('pg')
 const client = new Client({
 	user: 'postgres',
 	host: 'localhost',
-	password: 'ino5C?r5E$I2Vc?%>r7Npj1]}<Tw{:',
-	database: 'TPay'
+	password: 'mdpsecret',
+	database: 'PROJET-WEB'
 })
 
 client.connect()
@@ -171,5 +171,6 @@ router.delete('/panier', async (req, res) => {
 		res.status(401).json({ message: err })
 	}
 })
+
 
 module.exports = router
