@@ -78,12 +78,9 @@ var app = new Vue({
         return console.error('network error', err)
       }
     },
-    async checkAdmin(user) {
-      try {
-        await axios.post('/api', 'email=' + user.email)
-        this.admin = true
-      } catch (err) {
-        return console.error('network error', err)
-      }
+      var navUl = document.querySelector(".nav-ul")
+    showMenu() {
+      navUl.classList.toggle("hide-ul");
+    }
   }
 })
