@@ -159,4 +159,17 @@ router.post('/panier', async (req, res) => {
 	}
 })
 
+router.delete('/panier', async (req, res) => {
+	const userId = req.session.userId
+	try {
+		const sql = 'DELETE FROM public."Panier" WHERE "userId"=$1'
+		const result = await client.query({
+			text: sql,
+			values: [userId]
+		})
+	} catch (err) {
+		res.status(401).json({ message: err })
+	}
+})
+
 module.exports = router
