@@ -29,7 +29,7 @@
 				<div id="nav-container">
 					<header id="nav-header">
 						<a href="#" id="nav-logo"><router-link id="lien" to="/"><img src="./assets/img/logo.png" alt="Logo" id="logo"></router-link></a>
-						<div id="nav-menu-button">Menu</div>
+						<div id="nav-menu-button" @click="showMenu">Menu</div>
 					</header>
 					<nav>
 						<ul class="nav-ul hide-ul">
@@ -54,7 +54,6 @@
 			></router-view>
 		</main>
 	</div>
-	<script src="./js/navbar.js"></script>
 	<script src="https://kit.fontawesome.com/f1efa4788a.js" crossorigin="anonymous"></script>
 	<script src="/vue-application.js"></script>
 </body>
