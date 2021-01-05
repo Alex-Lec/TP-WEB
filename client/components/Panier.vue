@@ -1,8 +1,12 @@
 <template>
 <div>
-    <div class="panier-title">
-        <h2>Bienvenue {{ user.data.prenom }} {{ user.data.nom }} dans votre panier</h2>
+    <div class="panier-title" v-if="user.data !== undefined">
+        <h2>Bienvenue {{ user.data.prenom }} {{ user.data.nom }} !</h2>
         <p>Vous pouvez ici cliquer sur le bouton "payer" pour nous donner moult argent !</p>
+    </div>
+    <div class="panier-title" v-else>
+        <h2>Bienvenue dans votre panier</h2>
+        <p>Connectez-vous pour pouvoir passser commande !</p>
     </div>
     <div class="panier-container">
         <div class="article-panier" v-for="article in panier.data" :key="article.id">
@@ -26,8 +30,9 @@
                 </div>
             </div>
         </div>
-        <div class="resume">
+        <div class="resume" v-show="user.data !== undefined">
             Prix total : {{ getTotalPrice() }}€
+            <router-link class="nav-link" id="lien" to="/payment"><button>Procéder au paiement</button></router-link>
         </div>
     </div>
 </div>
