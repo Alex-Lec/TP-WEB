@@ -40,6 +40,15 @@ async function getUserId(email) {
 	return result.rows.pop().id
 }
 
+async function getAdmin(email) {
+	const sql = "SELECT admin FROM public.\"User\" WHERE email=$1"
+	const result = await client.query({
+		text: sql,
+		values: [email]
+	})
+	return result.rows.pop().admin
+}
+
 router.post('/register', async (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
@@ -161,11 +170,11 @@ router.post('/panier', async (req, res) => {
 
 router.get('/home', async (req, res) => {
 	const email = req.body.email
-	const admin = await getAdmin(email)
 	try {
 		const sql = 'SELECT admin FROM public.\"User\" WHERE email=$1'
 		const result = await client.query({
-			values: [admin]
+			text: sql,
+			values: [email]
 		})
 	} catch (err) {
 		res.status(401).json({ message: err })
