@@ -40,15 +40,6 @@ async function getUserId(email) {
 	return result.rows.pop().id
 }
 
-async function getAdmin(email) {
-	const sql = "SELECT admin FROM public.\"User\" WHERE email=$1"
-	const result = await client.query({
-		text: sql,
-		values: [email]
-	})
-	return result.rows.pop().admin
-}
-
 router.post('/register', async (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
