@@ -97,7 +97,7 @@ router.get('/articles', async (req, res) => {
 router.get('/me', async (req, res) => {
 	const id = req.session.userId
 	if (id !== undefined) {
-		const sql = "SELECT prenom, nom, email FROM public.\"User\" WHERE id=$1"
+		const sql = "SELECT prenom, nom, email, admin FROM public.\"User\" WHERE id=$1"
 		const result = await client.query({
 			text: sql,
 			values: [id]
@@ -174,6 +174,19 @@ router.get('/home', async (req, res) => {
 		res.json({ message: "Vous êtes admin." })
 	} else {
 		res.status(401).json({ message: "Vous n'êtes pas admin." })
+	}
+})
+
+router.delete('/panier', async (req, res) => {
+	const userId = req.session.userId
+	try {
+		const sql = 'DELETE FROM public."Panier" WHERE "userId"=$1'
+		const result = await client.query({
+			text: sql,
+			values: [userId]
+		})
+	} catch (err) {
+		res.status(401).json({ message: err })
 	}
 })
 

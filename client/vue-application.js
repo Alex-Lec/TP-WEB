@@ -26,7 +26,6 @@ var app = new Vue({
   data: {
     connected: false,
     user: { type: Object },
-    admin: false
   },
   async mounted() {
     try {
@@ -91,6 +90,14 @@ var app = new Vue({
     showMenu() {
       var navUl = document.querySelector(".nav-ul")
       navUl.classList.toggle("hide-ul");
-    }
+    },
+    async pay() {
+      try {
+        await axios.delete('/api/panier')
+        window.location.href = 'http://localhost:3000'
+      } catch (err) {
+        return console.error('network error', err)
+      }
+    } 
   }
 })
