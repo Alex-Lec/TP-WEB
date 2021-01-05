@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="connect">
+	<form @submit.prevent="connect" class="log-form">
 		<h2>Connexion</h2>
 		<input
 			type="email"

@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="contact">
+    <form @submit.prevent="contact" class="log-form">
         <h2>Bienvenue @user sur Confine'bay</h2>
         <img src="../assets/img/logo.png">
         <p>Content de vos achats, besoin d'une réponse à vos questions, réclamations sur un article ?

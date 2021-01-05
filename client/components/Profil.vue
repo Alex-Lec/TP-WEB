@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="changeProfil">
+    <form @submit.prevent="changeProfil" class="log-form">
         <h2>Modifier vos informations</h2>
         <p>Ancien email : {{ user.data.email }} </p>
         <input type="email" name="email" id="email" placeholder="Nouvelle adresse mail" required autofocus v-model="modifUser.email">

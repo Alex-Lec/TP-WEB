@@ -57,18 +57,31 @@ nav {
 }
 
 input {
-	border: 1px solid #fafafa;
+	border: 1px solid #95a5a6;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
 	border-radius: 30px;
 	&:hover {
-		border: 1px dashed #3e2723;
-		transition: 1s;
+		border: 1px solid #ff9800;
+		transition: 0.5s;
 	}
 	&:focus {
-		border: 1px dashed #3e27233d;
+		border: 1px solid #ff9800;
+	}
+}
+
+textarea {
+	border: 1px solid #95a5a6;
+	border-radius: 10px;
+	padding: 5px;
+	&:hover {
+		border: 1px solid #ff9800;
+		transition: 0.5s;
+	}
+	&:focus {
+		border: 1px solid #ff9800;
 	}
 }
 
@@ -78,17 +91,17 @@ button {
 	padding-left: 15px;
 	padding-right: 15px;
 	border: 1px solid #fafafa;
-	border-radius: 30px;
+	border-radius: 15px;
 	cursor: pointer;
-	background-color: #eceff1;
+	background-color: #ecf0f1;
 	font-size: 14px;
 	&:hover {
-		border: 1px dashed #3e2723;
+		border: 1px solid #ff9800;
 		transition: 1s;
 	}
 }
 
-form {
+.log-form {
 	display: flex;
 	margin-top: 30px;
 	text-align: center;
@@ -115,7 +128,7 @@ form {
 		width: 305px;
 		gap: 5px;
 		padding: 5px;
-		box-shadow: 1px 1px 1px #3e2723;
+		box-shadow: 0px 0px 3px #3e2723;
 		img {
 			align-self: center;
 			width: 250px;
@@ -166,6 +179,39 @@ form {
 		}
 		.modif-article {
 			align-self: center;
+		}
+	}
+}
+
+.card-form {
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	.card-form {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		.date-input {
+			input {
+				width: 100px;
+			}
+		}
+		.cvc-input {
+			input {
+				width: 80px;
+			}
+		}
+		.submit {
+			width: 100px;
+			margin-left: auto;
+			margin-right: auto;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 }

@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="register">
+    <form @submit.prevent="register" class="log-form">
         <h2>Créer un compte</h2>
         <input type="text" name="prenom" id="prenom" v-model="user.prenom" placeholder="Prénom" required autofocus>
         <input type="text" name="nom" id="nom" v-model="user.nom" placeholder="Nom" required>

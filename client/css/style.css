@@ -72,7 +72,7 @@ nav .menu {
 }
 
 input {
-  border: 1px solid #fafafa;
+  border: 1px solid #95a5a6;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
@@ -81,13 +81,29 @@ input {
 }
 
 input:hover {
-  border: 1px dashed #3e2723;
-  -webkit-transition: 1s;
-  transition: 1s;
+  border: 1px solid #ff9800;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 input:focus {
-  border: 1px dashed #3e27233d;
+  border: 1px solid #ff9800;
+}
+
+textarea {
+  border: 1px solid #95a5a6;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+textarea:hover {
+  border: 1px solid #ff9800;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+textarea:focus {
+  border: 1px solid #ff9800;
 }
 
 button {
@@ -96,19 +112,19 @@ button {
   padding-left: 15px;
   padding-right: 15px;
   border: 1px solid #fafafa;
-  border-radius: 30px;
+  border-radius: 15px;
   cursor: pointer;
-  background-color: #eceff1;
+  background-color: #ecf0f1;
   font-size: 14px;
 }
 
 button:hover {
-  border: 1px dashed #3e2723;
+  border: 1px solid #ff9800;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-form {
+.log-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,8 +177,8 @@ form {
   width: 305px;
   gap: 5px;
   padding: 5px;
-  -webkit-box-shadow: 1px 1px 1px #3e2723;
-          box-shadow: 1px 1px 1px #3e2723;
+  -webkit-box-shadow: 0px 0px 3px #3e2723;
+          box-shadow: 0px 0px 3px #3e2723;
 }
 
 .articles-container .article img {
@@ -257,5 +273,44 @@ form {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+.card-form {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.card-form .card-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+
+.card-form .card-form .date-input input {
+  width: 100px;
+}
+
+.card-form .card-form .cvc-input input {
+  width: 80px;
+}
+
+.card-form .card-form .submit {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-form .card-form .submit:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
