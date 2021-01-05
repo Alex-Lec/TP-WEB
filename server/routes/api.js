@@ -7,8 +7,8 @@ const { Client } = require('pg')
 const client = new Client({
 	user: 'postgres',
 	host: 'localhost',
-	password: 'mdpsecret',
-	database: 'PROJET-WEB'
+	password: 'ino5C?r5E$I2Vc?%>r7Npj1]}<Tw{:',
+	database: 'TPay'
 })
 
 client.connect()
@@ -162,19 +162,6 @@ router.post('/panier', async (req, res) => {
 		const result = await client.query({
 			text: sql,
 			values: [userId, articleId]
-		})
-	} catch (err) {
-		res.status(401).json({ message: err })
-	}
-})
-
-router.get('/home', async (req, res) => {
-	const email = req.body.email
-	try {
-		const sql = 'SELECT admin FROM public.\"User\" WHERE email=$1'
-		const result = await client.query({
-			text: sql,
-			values: [email]
 		})
 	} catch (err) {
 		res.status(401).json({ message: err })
