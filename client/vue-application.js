@@ -25,7 +25,8 @@ var app = new Vue({
   el: '#app',
   data: {
     connected: false,
-    user: { type: Object }
+    user: { type: Object },
+    admin: false
   },
   async mounted() {
     try {

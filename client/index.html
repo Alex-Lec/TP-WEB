@@ -7,6 +7,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<link rel="icon" href="../assets\img/logo2.png">
 	<link rel="stylesheet" href="./css/style.css">
 	<title>Confine'bay</title>
 </head>
@@ -47,6 +48,7 @@
 				:user="user"
 				:connected="connected"
 				@add-panier="addPanier"
+				@add-article="addArticle"
 				@update-quantity="updateQuantity"
 				@change-profil="changeProfil"
 				@connect="connect"
