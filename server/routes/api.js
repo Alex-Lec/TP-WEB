@@ -40,15 +40,6 @@ async function getUserId(email) {
 	return result.rows.pop().id
 }
 
-async function getAdmin(email) {
-	const sql = "SELECT admin FROM public.\"User\" WHERE email=$1"
-	const result = await client.query({
-		text: sql,
-		values: [email]
-	})
-	return result.rows.pop().admin
-}
-
 router.post('/register', async (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
@@ -165,15 +156,6 @@ router.post('/panier', async (req, res) => {
 		})
 	} catch (err) {
 		res.status(401).json({ message: err })
-	}
-})
-
-router.get('/home', async (req, res) => {
-	const email = req.body.email
-	if (await getAdmin(email) === true) {
-		res.json({ message: "Vous êtes admin." })
-	} else {
-		res.status(401).json({ message: "Vous n'êtes pas admin." })
 	}
 })
 
