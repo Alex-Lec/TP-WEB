@@ -97,7 +97,7 @@ router.get('/articles', async (req, res) => {
 router.get('/me', async (req, res) => {
 	const id = req.session.userId
 	if (id !== undefined) {
-		const sql = "SELECT prenom, nom, email FROM public.\"User\" WHERE id=$1"
+		const sql = "SELECT prenom, nom, email, admin FROM public.\"User\" WHERE id=$1"
 		const result = await client.query({
 			text: sql,
 			values: [id]
