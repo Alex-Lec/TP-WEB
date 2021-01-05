@@ -78,17 +78,10 @@ var app = new Vue({
         return console.error('network error', err)
       }
     },
-    async addArticle(article) {
+    async checkAdmin(user) {
       try {
-        const res = await axios.post('/api/article', article)
-        this.articles.push(res.data)
-      } catch (err) {
-        return console.error('network error', err)
-      }
-    },
-    async checkAdmin(article) {
-      try {
-        admin
+        await axios.post('/api', 'email=' + user.email)
+        this.admin = true
       } catch (err) {
         return console.error('network error', err)
       }
