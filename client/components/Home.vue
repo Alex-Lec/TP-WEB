@@ -12,14 +12,22 @@
             </div>
             <div>{{ article.description }}</div>
         </div>
+        <add-article @add-article="addArticle" :show="showForm"></add-article>
+        <button @click="showForm = !showForm" v-show="showbutton">Afficher le formulaire</button>
     </div>
 </template>
 
 <script>
+const AddArticle = window.httpVueLoader('./components/AddArticle.vue')
 module.exports = {
+    components: {
+        AddArticle
+    },
     data() {
         return {
-            articles: { type : Object }
+            articles: { type : Object },
+            showForm: false,
+            showbutton: true
         }
     },
     async mounted() {
@@ -32,6 +40,9 @@ module.exports = {
     methods: {
         addPanier(articleId) {
             this.$emit('add-panier', articleId)
+        },
+        addArticle (article) {
+            this.$emit('add-article', article)
         }
     }
 }

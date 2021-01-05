@@ -25,7 +25,8 @@ var app = new Vue({
   el: '#app',
   data: {
     connected: false,
-    user: { type: Object }
+    user: { type: Object },
+    admin: false
   },
   async mounted() {
     try {
@@ -76,6 +77,20 @@ var app = new Vue({
       } catch (err) {
         return console.error('network error', err)
       }
-    }
+    },
+    async addArticle(article) {
+      try {
+        const res = await axios.post('/api/article', article)
+        this.articles.push(res.data)
+      } catch (err) {
+        return console.error('network error', err)
+      }
+    },
+    async checkAdmin(article) {
+      try {
+        admin
+      } catch (err) {
+        return console.error('network error', err)
+      }
   }
 })
