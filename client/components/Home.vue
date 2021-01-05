@@ -12,12 +12,13 @@
             </div>
             <div>{{ article.description }}</div>
         </div>
-        <div class="form-admin" :show="user.data.admin">
+        <div class="form-admin" v-show="checkUser()">
             <add-article @add-article="addArticle" v-show="showForm" class="article-form"></add-article>
             <button @click="changeViewButton()" v-show="showButton">Afficher le formulaire</button>
             <button @click="doneForm()" v-show="! showButton" id="close-button">Fermer</button>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -57,6 +58,14 @@ module.exports = {
         doneForm() {
             this.showForm = false
             this.showButton = true
+        },
+        checkUser() {
+            if (this.props === undefined) {
+                return false
+            } else if (this.user === undefined) {
+                return true
+            }
+            return false
         }
     }
 }

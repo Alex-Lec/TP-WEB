@@ -172,4 +172,20 @@ router.delete('/panier', async (req, res) => {
 	}
 })
 
+router.post('/', async (req, res) => {
+	const titre = req.body.name
+	const description = req.body.description
+	const img = req.body.img
+	const prix = req.body.prix
+	const marque = req.body.marque
+	try {
+		const sql = 'INSERT INTO public."Article ("titre", "description", "img", "prix", "marque") VALUES ($1, $2, $3, $4, $5)'
+		const result = await client.query({
+			text: sql,
+			values: [titre, description, img, prix, marque]
+		})
+	} catch (err) {
+		res.status(401).json({ message: err })
+	}
+})
 module.exports = router
