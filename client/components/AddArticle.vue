@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="addArticle" v-show="show">
+  <form @submit.prevent="addArticle">
     <h2>Nouveau produit à ajouter</h2>
     <input
       type="text"
@@ -32,7 +32,7 @@
 <script>
 module.exports = {
     props: {
-		show: Boolean
+		  user: { type: Object }
 	},
   data() {
     return {

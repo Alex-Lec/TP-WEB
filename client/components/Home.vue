@@ -12,8 +12,11 @@
             </div>
             <div>{{ article.description }}</div>
         </div>
-        <add-article @add-article="addArticle" :show="showForm"></add-article>
-        <button @click="showForm = !showForm" v-show="showbutton">Afficher le formulaire</button>
+        <div class="form-admin" :show="user.data.admin">
+            <add-article @add-article="addArticle" v-show="showForm" class="article-form"></add-article>
+            <button @click="changeViewButton()" v-show="showButton">Afficher le formulaire</button>
+            <button @click="doneForm()" v-show="! showButton" id="close-button">Fermer</button>
+        </div>
     </div>
 </template>
 
@@ -23,11 +26,14 @@ module.exports = {
     components: {
         AddArticle
     },
+    props: {
+        user: { type: Object }
+    },
     data() {
         return {
             articles: { type : Object },
             showForm: false,
-            showbutton: true
+            showButton: true
         }
     },
     async mounted() {
@@ -43,11 +49,22 @@ module.exports = {
         },
         addArticle (article) {
             this.$emit('add-article', article)
+        },
+        changeViewButton() {
+            this.showForm = ! this.showForm
+            this.showButton = ! this.showButton
+        },
+        doneForm() {
+            this.showForm = false
+            this.showButton = true
         }
     }
 }
 </script>
 
 <style scoped>
-
+    #close-button {
+        margin-top: 5px;
+        width: 100%;
+    }
 </style>

@@ -324,3 +324,9 @@ button {
 		transition: 0.4s;
 	}
 }
+
+.article-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
