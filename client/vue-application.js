@@ -88,6 +88,18 @@ var app = new Vue({
       } catch (err) {
         return console.error('network error', err)
       }
-    } 
+    },
+    async addArticle(newArticle) {
+      const titre = newArticle.name
+      const description = newArticle.description
+      const img = newArticle.img
+      const prix = newArticle.prix
+      const marque = newArticle.marque
+      try {
+        await axios.post('/api/', 'titre=' + titre + '&description=' + description + '&img=' + img + '&prix=' + prix + '&marque=' + marque)
+      } catch (err) {
+        return console.error('network error', err)
+      }
+    }
   }
 })
