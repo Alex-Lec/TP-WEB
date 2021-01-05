@@ -1,6 +1,11 @@
 <template>
     <form @submit.prevent="contact" class="log-form">
-        <h2>Bienvenue @user sur Confine'bay</h2>
+        <div class="panier-title" v-if="user.data !== undefined">
+            <h2>Bienvenue {{ user.data.prenom }} {{ user.data.nom }} sur Confine'bay!</h2>
+        </div>
+        <div class="panier-title" v-else>
+            <h2>Bienvenue sur Confine'bay!</h2>
+        </div>
         <img src="../assets/img/logo.png">
         <p>Content de vos achats, besoin d'une réponse à vos questions, réclamations sur un article ?
             <strong>Vous êtes au bon endroit !</strong>
