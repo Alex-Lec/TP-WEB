@@ -404,7 +404,25 @@ button:hover {
   transition: 0.4s;
 }
 
-.article-form {
+.form-admin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-admin .article-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -413,5 +431,11 @@ button:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 15px;
+}
+
+.form-admin #close-button {
+  margin-top: 5px;
+  width: 25%;
+  width: 150px;
 }
 /*# sourceMappingURL=style.css.map */

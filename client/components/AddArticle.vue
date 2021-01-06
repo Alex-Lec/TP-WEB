@@ -3,7 +3,7 @@
     <h2>Nouveau produit à ajouter</h2>
     <input
       type="text"
-      v-model="newArticle.name"
+      v-model="newArticle.titre"
       placeholder="Nom du produit"
       required
     />
@@ -13,15 +13,16 @@
       placeholder="Marque du produit"
       required
     />
-    <textarea type="text" v-model="newArticle.description" required></textarea>
+    <textarea type="text" v-model="newArticle.description" placeholder="Description" required></textarea>
     <input
       type="text"
-      v-model="newArticle.image"
+      v-model="newArticle.img"
       placeholder="Lien vers l'image"
     />
     <input
-      type="number"
-      v-model="newArticle.price"
+      type="text"
+      v-model="newArticle.prix"
+      pattern="[0-9]*"
       placeholder="Prix"
       required
     />
@@ -36,13 +37,13 @@ module.exports = {
 	},
   data() {
     return {
-		newArticle: {
-        name: '',
-        marque: '',
-        description: '',
-        image: '',
-        price: 0
-      }
+      newArticle: {
+          titre: '',
+          marque: '',
+          description: '',
+          img: '',
+          prix: ''
+        }
 	};
   },
   methods: {

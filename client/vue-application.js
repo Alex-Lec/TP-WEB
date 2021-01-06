@@ -39,7 +39,7 @@ var app = new Vue({
     async register(user) {
       try {
         await axios.post('/api/register', 'email=' + user.email + '&password=' + user.password + '&prenom=' + user.prenom + '&nom=' + user.nom)
-        window.location.href = 'http://localhost:3000/login'
+        window.location.href = 'http://localhost:3000'
       } catch (err) {
         return console.error('network error', err)
       }
@@ -90,13 +90,13 @@ var app = new Vue({
       }
     },
     async addArticle(newArticle) {
-      const titre = newArticle.name
+      const titre = newArticle.titre
       const description = newArticle.description
       const img = newArticle.img
       const prix = newArticle.prix
       const marque = newArticle.marque
       try {
-        await axios.post('/api/', 'titre=' + titre + '&description=' + description + '&img=' + img + '&prix=' + prix + '&marque=' + marque)
+        await axios.post('/api/articles', 'titre=' + titre + '&description=' + description + '&img=' + img + '&prix=' + prix + '&marque=' + marque)
       } catch (err) {
         return console.error('network error', err)
       }

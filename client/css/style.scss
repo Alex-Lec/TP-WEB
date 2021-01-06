@@ -325,8 +325,21 @@ button {
 	}
 }
 
-.article-form {
+.form-admin {
+	margin-top: 20px;
+	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	justify-content: center;
+	align-items: center;
+	.article-form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+	#close-button {
+		margin-top: 5px;
+		width: 25%;
+		width: 150px;
+	}
 }
